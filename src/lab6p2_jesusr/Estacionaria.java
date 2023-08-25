@@ -13,15 +13,17 @@ import java.util.Date;
 public class Estacionaria extends Consola {
     private int controles,almacenamiento;
     private String tipo;
+   
 
     public Estacionaria() {
     }
 
-    public Estacionaria(int controles, int almacenamiento, String tipo, String identificación, String fabricante, String modelo, int añouso, double precio) {
-        super(identificación, fabricante, modelo,añouso, precio);
+    public Estacionaria(int controles, int almacenamiento, String tipo, String identificación, String fabricante, String modelo, int añouso, double precio,String Type) {
+        super(identificación, fabricante, modelo,añouso, precio,Type);
         this.controles = controles;
         this.almacenamiento = almacenamiento;
         this.tipo = tipo;
+  
     }
 
     public int getControles() {
@@ -47,7 +49,8 @@ public class Estacionaria extends Consola {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+
+       
     
     
     

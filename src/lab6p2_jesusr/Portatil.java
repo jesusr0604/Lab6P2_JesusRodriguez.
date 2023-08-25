@@ -7,16 +7,18 @@ public class Portatil extends Consola {
     private String tam;
     private int bat;
     private boolean estuche;
+    
 
     public Portatil() {
     super();
     }
 
-    public Portatil(String tam, int bat, boolean estuche, String identificación, String fabricante, String modelo, int añouso, double precio) {
-        super(identificación, fabricante, modelo,añouso, precio);
+    public Portatil(String tam, int bat, boolean estuche, String identificación, String fabricante, String modelo, int añouso, double precio,String type) {
+        super(identificación, fabricante, modelo,añouso, precio,type);
         this.tam = tam;
         this.bat = bat;
         this.estuche = estuche;
+   
     }
 
     public String getTam() {
@@ -42,6 +44,8 @@ public class Portatil extends Consola {
     public void setEstuche(boolean estuche) {
         this.estuche = estuche;
     }
+
+  
     
     
     

@@ -11,16 +11,17 @@ public class Consola {
     private int añouso;
     private ArrayList<Juego>game;
     private double precio;
+    private String type;
 
     public Consola() {
     }
 
-    public Consola(String identificación, String fabricante, String modelo, int añouso, double precio) {
+    public Consola(String identificación, String fabricante, String modelo, int añouso, double precio,String type) {
         this.identificación = identificación;
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.añouso=añouso;
-  
+        this.type=type;
         this.precio = precio;
     }
 
@@ -86,6 +87,17 @@ public class Consola {
         this.game = game;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    
+    
+    
     @Override
     public String toString() {
         return identificación ;
