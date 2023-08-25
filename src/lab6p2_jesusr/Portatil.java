@@ -12,8 +12,8 @@ public class Portatil extends Consola {
     super();
     }
 
-    public Portatil(String tam, int bat, boolean estuche, String identificación, String fabricante, String modelo, Date añouso, double precio) {
-        super(identificación, fabricante, modelo, añouso, precio);
+    public Portatil(String tam, int bat, boolean estuche, String identificación, String fabricante, String modelo, int añouso, double precio) {
+        super(identificación, fabricante, modelo,añouso, precio);
         this.tam = tam;
         this.bat = bat;
         this.estuche = estuche;

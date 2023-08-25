@@ -8,18 +8,18 @@ import javax.swing.JOptionPane;
 
 public class Consola {
     private String identificación, fabricante,modelo;
-    private Date añouso;
+    private int añouso;
     private ArrayList<Juego>game;
     private double precio;
 
     public Consola() {
     }
 
-    public Consola(String identificación, String fabricante, String modelo, Date añouso, double precio) {
+    public Consola(String identificación, String fabricante, String modelo, int añouso, double precio) {
         this.identificación = identificación;
         this.fabricante = fabricante;
         this.modelo = modelo;
-        this.añouso = añouso;
+        this.añouso=añouso;
   
         this.precio = precio;
     }
@@ -60,11 +60,11 @@ public class Consola {
         this.modelo = modelo;
     }
 
-    public Date getAñouso() {
+    public int getAñouso() {
         return añouso;
     }
 
-    public void setAñouso(Date añouso) {
+    public void setAñouso(int añouso) {
         this.añouso = añouso;
     }
 
