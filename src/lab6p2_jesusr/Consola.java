@@ -34,7 +34,7 @@ public class Consola {
 
     public void setIdentificación(String identificación) {
         
-        if (identificación.length()==4) {
+        if (identificación.length()==9) {
            this.identificación = identificación;
         
         }
