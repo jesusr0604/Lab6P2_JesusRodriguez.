@@ -5,6 +5,7 @@
 package lab6p2_jesusr;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -77,6 +78,21 @@ public class Principal extends javax.swing.JFrame {
         Conexion1 = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        ListaGames = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
@@ -438,6 +454,70 @@ public class Principal extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(Consola1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jList1.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jList1);
+
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 330, 450));
+
+        jLabel25.setText("Lanzamiento");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 80, 40));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 100, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 240, 90));
+
+        jLabel36.setText("Nombre");
+        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 80, 40));
+
+        jLabel41.setText("Descripcion");
+        jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 80, 40));
+
+        jDateChooser1.setDateFormatString("dd/ MM /YYYY");
+        jPanel3.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 310, -1));
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 120, -1));
+
+        jLabel42.setText("Precio");
+        jPanel3.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 80, 40));
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 120, -1));
+
+        jLabel43.setText("Estado  N/U");
+        jPanel3.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 80, 40));
+
+        javax.swing.GroupLayout ListaGamesLayout = new javax.swing.GroupLayout(ListaGames.getContentPane());
+        ListaGames.getContentPane().setLayout(ListaGamesLayout);
+        ListaGamesLayout.setHorizontalGroup(
+            ListaGamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+        );
+        ListaGamesLayout.setVerticalGroup(
+            ListaGamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1024,6 +1104,7 @@ public class Principal extends javax.swing.JFrame {
             Estuche1.setText("");
             AñosPort1.setText("");
             ModPort1.setText("");
+             Modify.dispose();
             
             
             try {
@@ -1088,11 +1169,11 @@ public class Principal extends javax.swing.JFrame {
             ModeloEsta1.setText("");
             PrecioEsta1.setText("");
             AñosEsta1.setText("");
-            Controles.setText("");
+            Controles1.setText("");
             Alma1.setText("");
             Conexion1.setText("");
             
-            
+            Modify.dispose();
              try {
                 ConsolaTab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1137,7 +1218,8 @@ public class Principal extends javax.swing.JFrame {
        int op=  JOptionPane.showConfirmDialog(this, "¿Seguro?","Eliminar",JOptionPane.YES_NO_OPTION);
         if (op==JOptionPane.YES_OPTION) {
             console.remove(ConsolaTab.getSelectedRow());
-            JOptionPane.showMessageDialog(null, "Logrado Exitosamente");
+           
+            
             try {
                 ConsolaTab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1164,8 +1246,23 @@ public class Principal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
             
+        }else{
+            JOptionPane.showMessageDialog(null, "Adios");
         }
+         JOptionPane.showMessageDialog(null, "Logrado Exitosamente");
     }//GEN-LAST:event_EliminarActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1232,6 +1329,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField IdEsta1;
     private javax.swing.JTextField IdPort;
     private javax.swing.JTextField IdPort1;
+    private javax.swing.JDialog ListaGames;
     private javax.swing.JTextField ModPort;
     private javax.swing.JTextField ModPort1;
     private javax.swing.JTextField ModeloEsta;
@@ -1247,6 +1345,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField PricePort1;
     private javax.swing.JTextField TamPort;
     private javax.swing.JTextField TamPort1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1264,6 +1363,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -1275,28 +1375,40 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
