@@ -5,6 +5,7 @@
 package lab6p2_jesusr;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,9 +18,9 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-       this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
-    ArrayList<Consola>console= new ArrayList();
+    ArrayList<Consola> console = new ArrayList();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,7 +70,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         ModPort = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        PortBut = new javax.swing.JButton();
         Bateria = new javax.swing.JTextField();
         Estuche = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -274,10 +275,15 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel12.setText("Modelo");
 
-        jButton3.setText("Portatil");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        PortBut.setText("Portatil");
+        PortBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PortButMouseClicked(evt);
+            }
+        });
+        PortBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                PortButActionPerformed(evt);
             }
         });
 
@@ -339,7 +345,7 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(Estuche, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Bateria, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(PortBut)
                         .addGap(9, 9, 9)))
                 .addGap(18, 18, 18))
         );
@@ -387,7 +393,7 @@ public class Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel20)
                         .addGap(5, 5, 5)
-                        .addComponent(jButton3)))
+                        .addComponent(PortBut)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -432,31 +438,90 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ButonEActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void PortButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PortButActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_PortButActionPerformed
 
     private void ButonEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButonEMouseClicked
-        String id= IdEsta.getText();
-        String fab=FabEsta.getText();
-        String mod=ModeloEsta.getText();
-        double price=Double.parseDouble(PrecioEsta.getText());
-        int years=Integer.parseInt(AñosEsta.getText());
-        int cont= Integer.parseInt(Controles.getText());
-        int manag=Integer.parseInt(Alma.getText());
-        String Conex=Conexion.getText();
-        console.add(new Estacionaria(cont, manag, id, fab, fab, mod, ABORT, price));
-        
-        IdEsta.setText("");
-        FabEsta.setText("");
-        ModeloEsta.setText("");
-        PrecioEsta.setText("");
-        AñosEsta.setText("");
-        Controles.setText("");
-        Alma.setText("");
-        Conexion.setText("");
-        
+        String id = IdEsta.getText();
+        boolean Valid = false;
+        String fab = FabEsta.getText();
+        String mod = ModeloEsta.getText();
+        double price = Double.parseDouble(PrecioEsta.getText());
+        int years = Integer.parseInt(AñosEsta.getText());
+        int cont = Integer.parseInt(Controles.getText());
+        int manag = Integer.parseInt(Alma.getText());
+        String Conex = Conexion.getText();
+        if (id.length() == 0 || id.substring(0, 3).matches("\\d+") || (id.substring(4).matches("[A-Z]+"))) {
+            JOptionPane.showMessageDialog(null, "OK");
+            Valid = true;
+            console.add(new Estacionaria(cont, manag, id, fab, fab, mod, ABORT, price));
+
+            IdEsta.setText("");
+            FabEsta.setText("");
+            ModeloEsta.setText("");
+            PrecioEsta.setText("");
+            AñosEsta.setText("");
+            Controles.setText("");
+            Alma.setText("");
+            Conexion.setText("");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Incorrecto");
+            Valid = false;
+        }
+
+
     }//GEN-LAST:event_ButonEMouseClicked
+
+    private void PortButMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PortButMouseClicked
+        String idp = IdPort.getText();
+        boolean Valid = false;
+        String fabp = FabPort.getText();
+        String Mod = ModPort.getText();
+        double pricep = Double.parseDouble(PricePort.getText());
+        String tam = TamPort.getText().toLowerCase();
+        int bat = Integer.parseInt(Bateria.getText());
+        String es = Estuche.getText().toLowerCase();
+        int years = Integer.parseInt(AñosPort.getText());
+        boolean mike = false;
+        switch (es) {
+            case "y": {
+                mike = true;
+
+            }
+            break;
+            case "n": {
+                mike = false;
+            }
+            break;
+            default: {
+                JOptionPane.showMessageDialog(null, "No valido");
+
+            }
+            break;
+        }
+        if (idp.length() == 0 || idp.substring(0, 3).matches("\\d+") || (idp.substring(4).matches("[A-Z]+"))) {
+            JOptionPane.showMessageDialog(null, "OK");
+            Valid = true;
+
+            console.add(new Portatil(tam, bat, mike, idp, fabp, Mod, years, pricep));
+            IdPort.setText("");
+            FabPort.setText("");
+            PricePort.setText("");
+            TamPort.setText("");
+            Bateria.setText("");
+            Estuche.setText("");
+            AñosPort.setText("");
+            ModPort.setText("");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Incorrecto");
+            Valid = false;
+        }
+
+
+    }//GEN-LAST:event_PortButMouseClicked
 
     /**
      * @param args the command line arguments
@@ -508,10 +573,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField IdPort;
     private javax.swing.JTextField ModPort;
     private javax.swing.JTextField ModeloEsta;
+    private javax.swing.JButton PortBut;
     private javax.swing.JTextField PrecioEsta;
     private javax.swing.JTextField PricePort;
     private javax.swing.JTextField TamPort;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
