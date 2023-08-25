@@ -3,6 +3,7 @@ package lab6p2_jesusr;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 
 public class Consola {
@@ -23,12 +24,24 @@ public class Consola {
         this.precio = precio;
     }
 
+    public Consola(ArrayList<Juego> game) {
+        this.game = game;
+    }
+
     public String getIdentificación() {
         return identificación;
     }
 
     public void setIdentificación(String identificación) {
-        this.identificación = identificación;
+        
+        if (identificación.length()==4) {
+           this.identificación = identificación;
+        
+        }
+         JOptionPane.showMessageDialog(null, "Esto no es de 4letras");
+        ;
+        
+        
     }
 
     public String getFabricante() {
@@ -63,6 +76,19 @@ public class Consola {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public ArrayList<Juego> getGame() {
+        return game;
+    }
+
+    public void setGame(ArrayList<Juego> game) {
+        this.game = game;
+    }
+
+    @Override
+    public String toString() {
+        return identificación ;
     }
     
     
