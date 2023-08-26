@@ -5,6 +5,7 @@
 package lab6p2_jesusr;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +24,7 @@ public class Principal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     ArrayList<Consola> console = new ArrayList();
-
+ DefaultListModel<String> modelo=new DefaultListModel<>();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -81,23 +82,27 @@ public class Principal extends javax.swing.JFrame {
         ListaGames = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        GameList = new javax.swing.JList<>();
         jLabel25 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        GameName = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        GameDes = new javax.swing.JTextArea();
         jLabel36 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jTextField2 = new javax.swing.JTextField();
+        DateGame = new com.toedter.calendar.JDateChooser();
+        PriceGame = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        EstadoGame = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
+        RentGame = new javax.swing.JTextField();
+        jLabel44 = new javax.swing.JLabel();
+        AddGame = new javax.swing.JTextField();
+        jLabel45 = new javax.swing.JLabel();
+        CanGame = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
+        AgregarGame = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel7 = new javax.swing.JPanel();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
-        jPanel13 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ConsolaTab = new javax.swing.JTable();
@@ -161,6 +166,11 @@ public class Principal extends javax.swing.JFrame {
         POPM.add(Eliminar);
 
         Games.setText("GAMES");
+        Games.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GamesActionPerformed(evt);
+            }
+        });
         POPM.add(Games);
 
         jLabel21.setText("Identificacion");
@@ -459,24 +469,24 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(153, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jList1.setModel(new DefaultListModel());
-        jScrollPane2.setViewportView(jList1);
+        GameList.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(GameList);
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 330, 450));
 
         jLabel25.setText("Lanzamiento");
         jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 80, 40));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        GameName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                GameNameActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 100, -1));
+        jPanel3.add(GameName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 100, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        GameDes.setColumns(20);
+        GameDes.setRows(5);
+        jScrollPane3.setViewportView(GameDes);
 
         jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 240, 90));
 
@@ -486,28 +496,66 @@ public class Principal extends javax.swing.JFrame {
         jLabel41.setText("Descripcion");
         jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 80, 40));
 
-        jDateChooser1.setDateFormatString("dd/ MM /YYYY");
-        jPanel3.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 310, -1));
+        DateGame.setDateFormatString("dd/ MM /YYYY");
+        jPanel3.add(DateGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 310, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        PriceGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                PriceGameActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 120, -1));
+        jPanel3.add(PriceGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 120, -1));
 
         jLabel42.setText("Precio");
         jPanel3.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 80, 40));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        EstadoGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                EstadoGameActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 120, -1));
+        jPanel3.add(EstadoGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 120, -1));
 
         jLabel43.setText("Estado  N/U");
         jPanel3.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 80, 40));
+
+        RentGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RentGameActionPerformed(evt);
+            }
+        });
+        jPanel3.add(RentGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, 120, -1));
+
+        jLabel44.setText("Rentable S/N");
+        jPanel3.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 80, 40));
+
+        AddGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddGameActionPerformed(evt);
+            }
+        });
+        jPanel3.add(AddGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 120, -1));
+
+        jLabel45.setText("Agregado S/N");
+        jPanel3.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 80, 40));
+
+        CanGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CanGameActionPerformed(evt);
+            }
+        });
+        jPanel3.add(CanGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 120, -1));
+
+        jLabel46.setText("Cantidad");
+        jPanel3.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 80, 40));
+
+        AgregarGame.setText("Agregar");
+        AgregarGame.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgregarGameMouseClicked(evt);
+            }
+        });
+        jPanel3.add(AgregarGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
 
         javax.swing.GroupLayout ListaGamesLayout = new javax.swing.GroupLayout(ListaGames.getContentPane());
         ListaGames.getContentPane().setLayout(ListaGamesLayout);
@@ -525,37 +573,6 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jTabbedPane4.addTab("Agregar", jPanel13);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane4)
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("Juego", jPanel7);
 
         ConsolaTab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1252,17 +1269,131 @@ public class Principal extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null, "Logrado Exitosamente");
     }//GEN-LAST:event_EliminarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void GameNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GameNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_GameNameActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void PriceGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceGameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_PriceGameActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void EstadoGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoGameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_EstadoGameActionPerformed
+
+    private void RentGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RentGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RentGameActionPerformed
+
+    private void AddGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddGameActionPerformed
+
+    private void CanGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CanGameActionPerformed
+
+    private void AgregarGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarGameMouseClicked
+        String Game= GameName.getText();
+        String des=GameDes.getText();
+        double price= Double.parseDouble(PriceGame.getText());
+        String State= EstadoGame.getText().toLowerCase();
+        boolean rent1=false;
+        String rent= RentGame.getText().toLowerCase();
+        switch (rent) {
+            case "s":{
+                rent1=true;
+            }
+                
+                break;
+            case "n":{
+                rent1=false;
+            }
+            default:
+                JOptionPane.showMessageDialog(null, "No valido");
+                break;
+        }
+        boolean add1=false;
+        String add= AddGame.getText().toLowerCase();
+        switch (add) {
+            case "s":{
+                add1=true;
+            }
+                
+                break;
+            case "n":{
+                add1=false;
+            }
+            default:
+                JOptionPane.showMessageDialog(null, "No valido");
+                break;
+        }
+        int Cant= Integer.parseInt(CanGame.getText());
+        Date fecha= DateGame.getDate();
+   
+        console.get(ConsolaTab.getSelectedRow()).getGame().add(new Juego(Game, des, State, price, fecha, Cant, rent1, add1));
+        try {
+                ConsolaTab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Identificacion", "Fabricante", "Modelo", "Años", "Precio", "Consola"
+            }
+        ));
+            DefaultTableModel Mike= (DefaultTableModel)ConsolaTab.getModel();
+          
+            ConsolaTab.setModel(Mike);
+
+            
+            for (Consola t : console) {
+                Object[] row = {t.getIdentificación(), t.getFabricante(), t.getModelo(),t.getAñouso(),t.getPrecio(),t.getType()};
+                DefaultTableModel modelo = (DefaultTableModel) ConsolaTab.getModel();
+                modelo.addRow(row);
+                ConsolaTab.setModel(modelo);            
+            }
+            
+            
+             GameList.setModel(modelo);
+        modelo.addElement(GameName.getText().trim());        
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        GameName.setText("");
+        GameDes.setText("");
+        PriceGame.setText("");
+        DateGame.setDate(new Date());
+        RentGame.setText("");
+        EstadoGame.setText("");
+        CanGame.setText("");
+        AddGame.setText("");
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_AgregarGameMouseClicked
+
+    private void GamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GamesActionPerformed
+         ListaGames.setModal(true);
+        ListaGames.pack();
+        ListaGames.setLocationRelativeTo(this);
+        ListaGames.setVisible(true);
+    }//GEN-LAST:event_GamesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1300,6 +1431,8 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AddGame;
+    private javax.swing.JButton AgregarGame;
     private javax.swing.JTextField Alma;
     private javax.swing.JTextField Alma1;
     private javax.swing.JTextField AñosEsta;
@@ -1310,6 +1443,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField Bateria1;
     private javax.swing.JButton ButonE;
     private javax.swing.JButton ButonE1;
+    private javax.swing.JTextField CanGame;
     private javax.swing.JTextField Conexion;
     private javax.swing.JTextField Conexion1;
     private javax.swing.JPanel Consola;
@@ -1317,13 +1451,18 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable ConsolaTab;
     private javax.swing.JTextField Controles;
     private javax.swing.JTextField Controles1;
+    private com.toedter.calendar.JDateChooser DateGame;
     private javax.swing.JMenuItem Eliminar;
+    private javax.swing.JTextField EstadoGame;
     private javax.swing.JTextField Estuche;
     private javax.swing.JTextField Estuche1;
     private javax.swing.JTextField FabEsta;
     private javax.swing.JTextField FabEsta1;
     private javax.swing.JTextField FabPort;
     private javax.swing.JTextField FabPort1;
+    private javax.swing.JTextArea GameDes;
+    private javax.swing.JList<String> GameList;
+    private javax.swing.JTextField GameName;
     private javax.swing.JMenuItem Games;
     private javax.swing.JTextField IdEsta;
     private javax.swing.JTextField IdEsta1;
@@ -1341,11 +1480,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton PortBut1;
     private javax.swing.JTextField PrecioEsta;
     private javax.swing.JTextField PrecioEsta1;
+    private javax.swing.JTextField PriceGame;
     private javax.swing.JTextField PricePort;
     private javax.swing.JTextField PricePort1;
+    private javax.swing.JTextField RentGame;
     private javax.swing.JTextField TamPort;
     private javax.swing.JTextField TamPort1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1384,19 +1524,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1404,11 +1544,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
